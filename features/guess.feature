@@ -28,3 +28,16 @@ Scenario: multiple correct and incorrect guesses
   When I make the following guesses: a,z,x,o
   Then the word should read "-oo-a-"
   And the wrong guesses should include: z,x
+
+Scenario: guess invalid character
+
+    Given I start a new game with word "foobar"
+    When I guess "%"
+    Then I should see "Invalid guess."
+
+Scenario: guess blank character
+
+    Given I start a new game with word "foobar"
+    When I guess ""
+    Then I should see "Invalid guess."
+    

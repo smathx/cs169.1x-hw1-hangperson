@@ -27,8 +27,8 @@ class HangpersonGame
   def guess(chr)
     
     if chr.nil? or chr.empty? or not chr.match(/[^[:alpha:]]/).nil?
-      raise ArgumentError 
-      false
+      #raise ArgumentError 
+      return false
     else
       chr.downcase!
       
@@ -42,12 +42,11 @@ class HangpersonGame
       
       if @word.include? chr 
         @guesses += chr
-        true
       else
         @wrong_guesses += chr
-        true
       end
     end
+    return true;
   end
   
   def word_with_guesses
