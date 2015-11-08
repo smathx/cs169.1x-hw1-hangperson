@@ -26,24 +26,26 @@ class HangpersonGame
 
   def guess(chr)
     
-    raise ArgumentError unless not chr.nil? and not chr.empty? and chr.match(/[^[:alpha:]]/).nil?
-    
-    chr.downcase!
-    
-    if @guesses.include? chr
-      return false
-    end
-    
-    if @wrong_guesses.include? chr
-      return false
-    end
-    
-    if @word.include? chr 
-      @guesses += chr
-      true
+    if chr.nil? or chr.empty? or not chr.match(/[^[:alpha:]]/).nil?
+      raise ArgumentError 
     else
-      @wrong_guesses += chr
-      true
+      chr.downcase!
+      
+      if @guesses.include? chr
+        return false
+      end
+      
+      if @wrong_guesses.include? chr
+        return false
+      end
+      
+      if @word.include? chr 
+        @guesses += chr
+        true
+      else
+        @wrong_guesses += chr
+        true
+      end
     end
   end
   
