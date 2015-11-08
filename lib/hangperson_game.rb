@@ -27,7 +27,7 @@ class HangpersonGame
   def guess(chr)
     
     if chr.nil? or chr.empty? or not chr.match(/[^[:alpha:]]/).nil?
-      #raise ArgumentError 
+      raise ArgumentError.new() 
       return false
     else
       chr.downcase!
