@@ -28,6 +28,7 @@ class HangpersonGame
     
     if chr.nil? or chr.empty? or not chr.match(/[^[:alpha:]]/).nil?
       raise ArgumentError 
+      false
     else
       chr.downcase!
       
